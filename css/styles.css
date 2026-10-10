@@ -420,24 +420,65 @@ h1 {
 @media (max-width: 900px) {
   h1 { font-size: 40px; }
   .hero-grid, .steps, .shop-grid { grid-template-columns: 1fr; }
-  .nav { display: none; }
+  .header-row {
+    flex-wrap: wrap;
+    row-gap: 8px;
+    min-height: 0;
+    padding: 10px 0;
+  }
+  .nav {
+    display: flex;
+    order: 5;
+    flex: 1 0 100%;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+  .nav a {
+    flex: 0 0 auto;
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 999px;
+    padding: 8px 12px;
+  }
+  .brand-block, .section h2, #order, #shop { scroll-margin-top: 116px; }
 }
 
 @media (max-width: 640px) {
   .wrap { width: min(var(--max), calc(100% - 28px)); }
-  .header-row { min-height: 64px; gap: 10px; }
-  .brand-sub, .header-call span { display: none; }
-  h1 { font-size: 34px; }
-  .lead { font-size: 16px; }
-  .models { grid-template-columns: 1fr 1fr; }
-  .photo img { height: 190px; }
-  .section h2 { font-size: 28px; }
+  .brand-sub, .header-call { display: none; }
+  .hero { padding: 24px 0 8px; }
+  .hero-grid { gap: 20px; }
+  h1 { font-size: 32px; }
+  .lead { font-size: 16px; margin-bottom: 16px; }
+  .actions .btn { min-height: 44px; }
+  .hero-board {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 4px;
+  }
+  .hero-grid > * { min-width: 0; }
+  .photo { flex: 0 0 86%; scroll-snap-align: start; }
+  .photo img { height: 200px; }
+  .section { padding: 36px 0; }
+  .section h2, .shop-body h2, .reviews h2 { font-size: 26px; }
+  .models { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .model { min-height: 104px; padding: 12px; }
+  .model b { font-size: 18px; }
+  .contact-card .phone { font-size: 22px; }
+  .contact-card .actions { flex-direction: column; }
+  .contact-card .actions .btn, .reviews > .btn { width: 100%; }
+  .map { height: 220px; }
+  .review-card footer { align-items: center; }
   .footer-row { flex-direction: column; }
   .dock {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
     position: fixed;
+    z-index: 12;
     left: 0;
     right: 0;
     bottom: 0;
@@ -445,5 +486,5 @@ h1 {
     background: rgba(255, 255, 255, 0.96);
     border-top: 1px solid var(--line);
   }
-  .dock .btn { width: 100%; }
+  .dock .btn { width: 100%; min-height: 46px; }
 }
