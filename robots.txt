@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sergey16071997.github.io/legkova/sitemap.xml
